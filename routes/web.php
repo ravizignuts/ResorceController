@@ -16,4 +16,4 @@ use App\Http\Controllers\StudentController;
 Route::get('/', function () {
     return view('home');
 });
-Route::resource('student',StudentController::class)->missing(function () {return 'Not Available';});
+Route::resource('student',StudentController::class);

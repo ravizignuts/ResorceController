@@ -3,6 +3,7 @@
 @section('content')
 
     <form action="student" method="post">
+        @csrf
         <div class="form-group">
             <label for="sid">Student ID</label>
             <input type="text" class='d-inline' name="sid" id="sid" class="form-control" placeholder="Student Id">

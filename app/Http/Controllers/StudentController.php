@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -13,7 +14,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-
+       $students = Student::all();
+       return view('display',compact('students'));
     }
 
     /**
@@ -34,7 +36,28 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        // dd($request);
+        //create Method
+        Student::create([
+            'student_id' => $request->sid,
+            'fname' => $request->firstname . $request->lastname,
+            'gender' => $request->gender,
+            'dob' => $request->dob,
+            'sem' => $request->sem,
+            'course' => $request->course,
+        ]);
+        //Insert using Save Method
+        // $Student = new Student;
+        // $Student->student_id = $request->sid;
+        // $Student->fname = $request->firstname.$request->lastname;
+        // $Student->gender = $request->gender;
+        // $Student->dob = $request->dob;
+        // $Student->sem = $request->sem;
+        // $Student->course = $request->course;
+        // $Student->save();
+        //Student::create($request->all());
+        $msg = 'Student Is Created';
+        return redirect('student')->with('msg',$msg);
     }
 
     /**
@@ -54,9 +77,11 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($student_id)
     {
-        //
+        $student = Student::find($student_id);
+        return view('update',['student'=>$student]);
+
     }
 
     /**
@@ -79,6 +104,8 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $student = Student::find($id);
+        $student->delete();
+        return redirect('student');
     }
 }
