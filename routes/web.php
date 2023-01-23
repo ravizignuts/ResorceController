@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DemoController;
 use App\Http\Controllers\StudentController;
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,6 @@ Route::get('/', function () {
     return view('home');
 });
 Route::resource('student',StudentController::class);
+Route::controller(DemoController::class)->group(function(){
+    Route::get('qb','ReadQueryBuilder');
+});

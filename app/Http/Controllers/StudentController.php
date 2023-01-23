@@ -14,8 +14,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-       $students = Student::all();
-       return view('display',compact('students'));
+        $students = Student::all();
+        return view('display', compact('students'));
     }
 
     /**
@@ -57,7 +57,7 @@ class StudentController extends Controller
         // $Student->save();
         //Student::create($request->all());
         $msg = 'Student Is Created';
-        return redirect('student')->with('msg',$msg);
+        return redirect('student')->with('msg', $msg);
     }
 
     /**
@@ -80,8 +80,7 @@ class StudentController extends Controller
     public function edit($student_id)
     {
         $student = Student::find($student_id);
-        return view('update',['student'=>$student]);
-
+        return view('update', ['student' => $student]);
     }
 
     /**
@@ -93,7 +92,6 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
     }
 
     /**
