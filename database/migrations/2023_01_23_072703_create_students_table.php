@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('dob');
             $table->string('sem');
             $table->string('course');
-            $table->string('department');
             $table->timestamps();
         });
     }
