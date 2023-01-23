@@ -2,7 +2,7 @@
 @section('title', 'Insert Form')
 @section('content')
 
-    <form action="insert" method="post">
+    <form action="student" method="post">
         <div class="form-group">
             <label for="sid">Student ID</label>
             <input type="text" class='d-inline' name="sid" id="sid" class="form-control" placeholder="Student Id">
