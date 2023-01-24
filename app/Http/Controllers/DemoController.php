@@ -22,6 +22,9 @@ class DemoController extends Controller
         //where() and find()[is for primary key]  Method is use to find the coloumn
         //$students = DB::table('students')->where('sem','4')->first();
         //$students = DB::table('students')->where('student_id','21MCA155');
+        //$students = DB::table('students')->where('sem','>','3')->get();
+        //$students = DB::table('students')->where('fname','like','r%')->get();
+
 
         //$students = DB::table('students')->where('sem','4')->get()->pluck('student_id','fname')//it retrive list of coloumn attribute
         //$students = DB::table('students')->where('fname','RaviThakor')->value('student_id');//retrive particular column value
@@ -55,8 +58,9 @@ class DemoController extends Controller
         //$student = DB::table('students')->select('student_id','fname')->where('gender','male')->get();
 
         //coloumn and return distinct value
-        $student = DB::table('students')->distinct()->get('course');
-        dd($student);
+//$s    $student = DB::table('students')->distinct()->get('course');
+        //dd($students);
+
         //return $students;
 
 
