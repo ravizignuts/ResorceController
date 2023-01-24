@@ -20,9 +20,12 @@ class DemoController extends Controller
 
         //where() and find()[is for primary key]  Method is use to find the coloumn
         //$students = DB::table('students')->where('sem','4')->first();
-        $students = DB::table('students')->where('sem','4')->get();
-        dd($students);
-        //return $students;
+        $students = DB::table('students')->where('student_id','21MCA155');
+        //$students = DB::table('students')->where('sem','4')->get()->pluck('student_id','fname')//it retrive list of coloumn attrinute
+        //$students = DB::table('students')->where('fname','RaviThakor')->value('student_id');//retirive psrticular column value
+        //dd($students);
+
+        return $students;
 
     }
 

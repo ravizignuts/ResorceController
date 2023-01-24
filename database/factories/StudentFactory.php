@@ -16,10 +16,17 @@ class StudentFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    protected $model = Student::class;
+
     public function definition()
     {
         return [
-            //I have Create this Factory
+            'student_id'=>'21MTECH'.$this->faker->unique()->numberBetween(1,100),
+            'fname'=>$this->faker->name(),
+            'gender'=>$this->faker->randomElement(['Male','Female']),
+            'dob'=>$this->faker->date('d-m-y'),
+            'sem'=>$this->faker->numberBetween(1,4),
+            'course'=>'M.Tech'//$this->faker->randomElement(['BCA','MCA','Msc.IT','Bsc.IT','B.Tech','M.tech'])
 
         ];
     }
