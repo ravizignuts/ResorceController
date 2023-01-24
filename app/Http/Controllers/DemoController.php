@@ -20,12 +20,21 @@ class DemoController extends Controller
 
         //where() and find()[is for primary key]  Method is use to find the coloumn
         //$students = DB::table('students')->where('sem','4')->first();
-        $students = DB::table('students')->where('student_id','21MCA155');
+        //$students = DB::table('students')->where('student_id','21MCA155');
+
         //$students = DB::table('students')->where('sem','4')->get()->pluck('student_id','fname')//it retrive list of coloumn attrinute
         //$students = DB::table('students')->where('fname','RaviThakor')->value('student_id');//retirive psrticular column value
         //dd($students);
 
-        return $students;
+        //display records in smalls chunk
+        // DB::table('students')->orderBy('student_id')->chunk(20,function($students){
+        //     foreach ($students as $stud) {
+        //         echo $stud->fname.' : ';
+        //         echo $stud->course.' - '.$stud->sem.'<br>';
+        //     }
+        //     return false;//it will stop the loop and display only one chunk
+        // });
+        //return $students;
 
     }
 
