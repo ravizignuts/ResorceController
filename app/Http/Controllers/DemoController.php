@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\Exists;
 
 class DemoController extends Controller
 {
@@ -22,8 +23,8 @@ class DemoController extends Controller
         //$students = DB::table('students')->where('sem','4')->first();
         //$students = DB::table('students')->where('student_id','21MCA155');
 
-        //$students = DB::table('students')->where('sem','4')->get()->pluck('student_id','fname')//it retrive list of coloumn attrinute
-        //$students = DB::table('students')->where('fname','RaviThakor')->value('student_id');//retirive psrticular column value
+        //$students = DB::table('students')->where('sem','4')->get()->pluck('student_id','fname')//it retrive list of coloumn attribute
+        //$students = DB::table('students')->where('fname','RaviThakor')->value('student_id');//retrive particular column value
         //dd($students);
 
         //display records in smalls chunk
@@ -34,7 +35,31 @@ class DemoController extends Controller
         //     }
         //     return false;//it will stop the loop and display only one chunk
         // });
+
+        //Aggregates
+        // $student=DB::table('students')->count();//count record
+        // $student = DB::table('students')->max('sem');//return maximum VALUE
+        // $student = DB::table('students')->min('sem');//return minimum VALUE
+        // $student = DB::table('students')->avg('sem');//return average value
+        // dd($student);
+
+        //Check Record exists or not
+            // if(DB::table('students')->where('sem','8')->exists()){
+            //     dd('yes');
+            // }
+            // if(DB::table('students')->where('sem','8')->doesntExist()){
+            //     dd('No');
+            // }
+
+        //Select particular coloumn and display
+        //$student = DB::table('students')->select('student_id','fname')->where('gender','male')->get();
+
+        //coloumn and return distinct value
+        $student = DB::table('students')->distinct()->get('course');
+        dd($student);
         //return $students;
+
+
 
     }
 
